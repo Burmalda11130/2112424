@@ -21,7 +21,7 @@ const userId = urlParams.get("user_id");
 let username = urlParams.get("username");
 
 function check_username() {
-  console.log(username);
+  alert(username);
 }
 
 document.getElementById("id").textContent = userId;
