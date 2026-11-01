@@ -20,64 +20,9 @@ const urlParams = new URLSearchParams(window.location.search);
 const userId = urlParams.get("user_id");
 let username = urlParams.get("username");
 
-const plus = document.getElementById("plus");
-const minus = document.getElementById("minus");
-const reset = document.getElementById("reset");
-
-const send_info = document.getElementById("send_info");
-
-let kol = 0;
-
-function plus_kol() {
-  kol += 1;
-  document.getElementById("kol").textContent = kol;
-  return;
-}
-function minus_kol() {
-  kol -= 1;
-  document.getElementById("kol").textContent = kol;
-  return;
-}
-function reset_kol() {
-  kol = 0;
-  document.getElementById("kol").textContent = kol;
-  return;
+function check_username() {
+  console.log(username);
 }
 
-function send_info_fun() {
-  createNewDiv(`Отправлено число: ${kol}`);
-  //   let data = {
-  //     num: kol,
-  //   };
-  //   tg.sendData(JSON.stringify(data));
-}
-
-function createNewDiv(dataText) {
-  const container = document.getElementById("logs");
-  const newDiv = document.createElement("div");
-  newDiv.textContent = dataText;
-  container.prepend(newDiv);
-}
-
-function check() {
-  if (
-    username === "None" ||
-    username === null ||
-    username === undefined ||
-    username === ""
-  ) {
-    username = "Отсутствует";
-    document.getElementById("username").textContent = username;
-  } else {
-    document.getElementById("username").textContent = username;
-  }
-}
-
-plus.addEventListener("click", plus_kol);
-minus.addEventListener("click", minus_kol);
-reset.addEventListener("click", reset_kol);
-send_info.addEventListener("dblclick", send_info_fun);
-
-document.getElementById("kol").textContent = kol;
 document.getElementById("id").textContent = userId;
-check();
+check_username();
