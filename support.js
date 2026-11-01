@@ -30,7 +30,11 @@ function send_info() {
 }
 
 function check_username() {
-  alert(username);
+  if (username == "None") {
+    username = "Отсутсвует!";
+    document.getElementById("username").textContent = username;
+  } else;
+  document.getElementById("username").textContent = username;
 }
 
 buttom.addEventListener("click", send_info);
