@@ -1,17 +1,16 @@
-function isTelegramWebApp() {
-  const tg = window.Telegram.WebApp;
-  if (tg && tg.initData && tg.initData.length > 0) {
-    return true;
+const tg = window.Telegram?.WebApp;
+function checkTelegramAndInit() {
+  if (!tg || !tg.platform || tg.platform === "unknown") {
+    document.body.innerHTML = `
+      <div style="text-align:center; margin-top:20%; font-family:sans-serif; color:#333;">
+        <h1>Пожалуйста, откройте это приложение внутри Telegram!</h1>
+      </div>`;
+    throw new Error("Приложение запущено вне Telegram Web App");
   }
-  return false;
+
+  tg.ready();
 }
-if (!isTelegramWebApp()) {
-  document.body.innerHTML =
-    "<div style='text-align:center; margin-top:20%; font-family:sans-serif;'><h1>Пожалуйста, откройте это приложение в Telegram!</h1></div>";
-  throw new Error("Приложение запущено вне Telegram Web App");
-}
-var tg = window.Telegram.WebApp;
-tg.ready();
+checkTelegramAndInit();
 tg.disableVerticalSwipes();
 
 const urlParams = new URLSearchParams(window.location.search);
