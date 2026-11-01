@@ -22,8 +22,9 @@ const buttom = document.getElementById("buttom");
 
 function send_info() {
   const textValue = input.value;
-  let data = {
+    let data = {
     info: textValue,
+    id: userId,
   };
   tg.sendData(JSON.stringify(data));
 }
