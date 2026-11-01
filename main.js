@@ -5,6 +5,10 @@ tg.disableVerticalSwipes();
 const urlParams = new URLSearchParams(window.location.search);
 const userId = urlParams.get("user_id");
 const username = urlParams.get("username");
+if (username == "None") {
+  username = "Отстутствует";
+  return;
+}
 
 const plus = document.getElementById("plus");
 const minus = document.getElementById("minus");
