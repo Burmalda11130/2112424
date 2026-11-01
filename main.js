@@ -4,7 +4,7 @@ tg.disableVerticalSwipes();
 
 const urlParams = new URLSearchParams(window.location.search);
 const userId = urlParams.get("user_id");
-const username = urlParams.get("username");
+let username = urlParams.get("username");
 
 const plus = document.getElementById("plus");
 const minus = document.getElementById("minus");
@@ -38,9 +38,13 @@ function send_info_fun() {
 }
 
 function check() {
-  if (username == "None") {
-    username = "Отстутствует";
-    return;
+  if (
+    username === "None" ||
+    username === null ||
+    username === undefined ||
+    username === ""
+  ) {
+    username = "Отсутствует";
   }
 }
 
