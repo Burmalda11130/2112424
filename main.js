@@ -1,3 +1,6 @@
+var tg = window.Telegram.WebApp;
+tg.ready()
+
 var inputname = document.getElementById("inputtext");
 var inputnum = document.getElementById("inputnum");
 var button = document.getElementById("button");
