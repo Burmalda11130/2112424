@@ -60,6 +60,8 @@ function check() {
   ) {
     username = "Отсутствует";
     document.getElementById("name").textContent = username;
+  } else {
+    document.getElementById("name").textContent = username;
   }
 }
 
