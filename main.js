@@ -45,10 +45,18 @@ function reset_kol() {
 }
 
 function send_info_fun() {
-  let data = {
-    num: kol,
-  };
-  tg.sendData(JSON.stringify(data));
+  createNewDiv(`Отправлено число: ${kol}`);
+  //   let data = {
+  //     num: kol,
+  //   };
+  //   tg.sendData(JSON.stringify(data));
+}
+
+function createNewDiv(dataText) {
+  const container = document.getElementById("logs");
+  const newDiv = document.createElement("div");
+  newDiv.textContent = dataText;
+  container.prepend(newDiv);
 }
 
 function check() {
@@ -59,15 +67,15 @@ function check() {
     username === ""
   ) {
     username = "Отсутствует";
-    document.getElementById("name").textContent = username;
+    document.getElementById("username").textContent = username;
   } else {
-    document.getElementById("name").textContent = username;
+    document.getElementById("username").textContent = username;
   }
 }
 
 plus.addEventListener("click", plus_kol);
 minus.addEventListener("click", minus_kol);
-reset.addEventListener("dblclick", reset_kol);
+reset.addEventListener("click", reset_kol);
 send_info.addEventListener("dblclick", send_info_fun);
 
 document.getElementById("kol").textContent = kol;
